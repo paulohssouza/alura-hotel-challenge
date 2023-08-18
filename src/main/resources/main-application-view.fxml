@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.phss.controller.MainApplicationController">
+   <ImageView fitHeight="562.0" fitWidth="750.0" layoutX="14.0" layoutY="19.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Image url="@images/menu-img.png" />
+   </ImageView>
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="578.0" prefHeight="17.0" prefWidth="344.0" style="-fx-background-color: #2671f2;" text="Desenvolvido por Paulo Henrique Santana de Souza" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="560.0">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+   <ImageView layoutX="819.0" layoutY="355.0" AnchorPane.leftAnchor="850.0" AnchorPane.topAnchor="350.0">
+      <Image url="@images/login.png" />
+   </ImageView>
+   <ImageView layoutX="819.0" layoutY="94.0" AnchorPane.leftAnchor="830.0" AnchorPane.topAnchor="150.0">
+      <Image url="@images/Ha-100px.png" />
+   </ImageView>
+   <Button fx:id="loginViewButton" layoutX="856.0" layoutY="288.0" mnemonicParsing="false" onMouseClicked="#loginViewButtonAction" style="-fx-background-color: #ffffff;" text="LOGIN" textFill="#2671f2" AnchorPane.leftAnchor="840.0" AnchorPane.topAnchor="280.0">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Button>
+   <Button fx:id="closeButton" layoutX="930.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeAction" style="-fx-background-color: #ffffff;" text="X" textFill="#2671f2" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Button>
+</AnchorPane>
