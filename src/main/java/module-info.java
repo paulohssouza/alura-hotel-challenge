@@ -5,4 +5,5 @@ module alura.hotel.challenge {
     opens br.com.phss.controller to javafx.fxml;
 
     exports br.com.phss;
+    exports br.com.phss.factory;
 }
