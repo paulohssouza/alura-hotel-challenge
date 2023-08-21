@@ -1,13 +1,11 @@
 package br.com.phss.controller;
 
-import br.com.phss.MainApplication;
 import br.com.phss.factory.ViewsFactory;
 import br.com.phss.utils.DialogBox;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,7 +22,6 @@ public class MainApplicationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
     public void loginViewButtonAction(MouseEvent mouseEvent) throws IOException {

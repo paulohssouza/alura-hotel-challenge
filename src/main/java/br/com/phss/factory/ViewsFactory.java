@@ -16,7 +16,7 @@ public class ViewsFactory {
     public Stage mainApplicationViewCreate() {
         Parent root = null;
         try {
-            root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/main-application-view.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/views/main-application-view.fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -30,7 +30,7 @@ public class ViewsFactory {
     public Stage loginViewCreate() {
         Parent root = null;
         try {
-            root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/login-view.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/views/login-view.fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
