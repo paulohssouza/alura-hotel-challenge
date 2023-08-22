@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.phss.controller.UserMenuController">
+   <AnchorPane prefHeight="600.0" prefWidth="302.0" style="-fx-background-color: #0078D7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="680.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="145.0" fitWidth="147.0" layoutX="71.0" layoutY="54.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="50.0">
+         <Image url="@../images/Ha-100px.png" />
+      </ImageView>
+      <Separator layoutX="59.0" layoutY="213.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
+      <ImageView layoutX="43.0" layoutY="268.0">
+         <Image url="@../images/icon-reservas.png" />
+      </ImageView>
+      <ImageView layoutX="47.0" layoutY="342.0">
+         <Image url="@../images/icon-buscar.png" />
+      </ImageView>
+      <Button fx:id="bookRecordButton" layoutX="85.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#bookRecord" style="-fx-background-color: #0078D7;" text="Registro de reservas" textFill="WHITE" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="268.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="searchButton" layoutX="120.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#search" style="-fx-background-color: #0078D7;" text="Buscar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </AnchorPane>
+   <AnchorPane layoutX="318.0" layoutY="109.0" prefHeight="128.0" prefWidth="682.0" style="-fx-background-color: #76BBDF;" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+      <Label layoutX="173.0" layoutY="14.0" text="Sistema de reservas Hotel Alura" textFill="WHITE" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateLabel" layoutX="25.0" layoutY="64.0" text="Hoje é 22/08/2023" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </AnchorPane>
+   <Label layoutX="346.0" layoutY="247.0" style="-fx-background-color: #ffffff;" text="Bem vindo!">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <Label layoutX="346.0" layoutY="282.0" prefHeight="71.0" prefWidth="637.0" style="-fx-background-color: #ffffff;" text="Sistema de reservas do Hotel Alura. Controle e gerencia de forma otimizadae fácil o fluxo de reservas e hóspedes do hotel." textOverrun="CLIP" wrapText="true">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="346.0" layoutY="353.0" prefHeight="63.0" prefWidth="637.0" style="-fx-background-color: #ffffff;" text="Esta ferramenta permitirá que você mantenha o controle completo e detalhado de suas reservas e hóspedes, você terá acesso a tarefas específicas como:" wrapText="true">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="346.0" layoutY="426.0" style="-fx-background-color: #ffffff;" text="- Registro de Reservas e Hóspedes">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="346.0" layoutY="468.0" style="-fx-background-color: #ffffff;" text="- Edição de Reservas e Hóspedes existentes">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="346.0" layoutY="511.0" style="-fx-background-color: #ffffff;" text="- Excluir todos os tipos de registros">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Button fx:id="closeButton" layoutX="955.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#close" style="-fx-background-color: #ffffff;" text="X" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Button>
+</AnchorPane>

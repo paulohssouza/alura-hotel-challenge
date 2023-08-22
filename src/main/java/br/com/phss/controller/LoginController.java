@@ -26,6 +26,7 @@ public class LoginController implements Initializable {
     @FXML
     public TextField userTextFieldLogin;
     private ViewsFactory viewsFactory = new ViewsFactory();
+    private Stage stage;
     private User user;
     private UserDAO userDAO;
 
@@ -38,7 +39,9 @@ public class LoginController implements Initializable {
         userDAO = new UserDAO(JPAUtil.getEntityManager());
         user = userDAO.findByLogin(userTextFieldLogin.getText());
         if(autetication(user)) {
-            System.out.println();
+            stage = (Stage) enterButtonLogin.getScene().getWindow();
+            stage.close();
+            viewsFactory.userMenuView().show();
         }
     }
 
