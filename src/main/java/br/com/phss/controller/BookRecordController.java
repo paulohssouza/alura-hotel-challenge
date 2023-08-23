@@ -64,6 +64,11 @@ public class BookRecordController implements Initializable {
     }
 
     public void checkOutDateInput(ActionEvent inputMethodEvent) {
-        labelAmountReservation.setText(CalculateAmountReservation.calculateAmountReservation(checkInDatePicker.getValue(), checkOutDatePicker.getValue()).toString());
+        String amount = CalculateAmountReservation
+                .calculateAmountReservation(
+                        checkInDatePicker.getValue(),
+                        checkOutDatePicker.getValue())
+                .toString();
+        labelAmountReservation.setText(amount);
     }
 }
