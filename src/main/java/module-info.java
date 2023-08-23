@@ -1,10 +1,4 @@
 module alura.hotel.challenge {
-    requires javafx.fxml;
-    requires javafx.controls;
-    requires jakarta.persistence;
-    requires lombok;
-    requires org.hibernate.orm.core;
-
     opens br.com.phss.controller;
     opens br.com.phss;
     opens br.com.phss.model;
@@ -15,4 +9,10 @@ module alura.hotel.challenge {
     exports br.com.phss.dao;
     exports br.com.phss.controller;
     exports br.com.phss.utils;
+
+    requires javafx.fxml;
+    requires javafx.controls;
+    requires jakarta.persistence;
+    requires static lombok;
+    requires org.hibernate.orm.core;
 }

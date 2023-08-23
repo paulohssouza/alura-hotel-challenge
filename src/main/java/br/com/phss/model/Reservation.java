@@ -22,17 +22,17 @@ public class Reservation {
     @Column(name = "departure_date")
     private LocalDate departureDate;
     private BigDecimal amount;
-    private PaymentForm paymentForm;
+    private String paymentForm;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "guest_id")
     private Guest guest;
 
-    public Reservation(LocalDate entryDate, LocalDate departureDate, BigDecimal amount, PaymentForm paymentForm, Guest guest) {
+    public Reservation(LocalDate entryDate, LocalDate departureDate, BigDecimal amount, String paymentForm) {
         this.entryDate = entryDate;
         this.departureDate = departureDate;
         this.amount = amount;
         this.paymentForm = paymentForm;
-        this.guest = guest;
+        this.guest = null;
     }
 
     @Override

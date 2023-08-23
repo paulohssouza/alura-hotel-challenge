@@ -1,18 +1,16 @@
 package br.com.phss.controller;
 
 import br.com.phss.dao.UserDAO;
-import br.com.phss.factory.ViewsFactory;
+import br.com.phss.factory.ViewsList;
 import br.com.phss.model.User;
+import br.com.phss.model.service.Authentication;
 import br.com.phss.utils.DialogBox;
 import br.com.phss.utils.JPAUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,8 +23,6 @@ public class LoginController implements Initializable {
     public TextField passwordTextFiledLogin;
     @FXML
     public TextField userTextFieldLogin;
-    private ViewsFactory viewsFactory = new ViewsFactory();
-    private Stage stage;
     private User user;
     private UserDAO userDAO;
 
@@ -35,29 +31,17 @@ public class LoginController implements Initializable {
 
     }
 
-    public void loginAction(MouseEvent mouseEvent) {
+    public void loginAction() {
         userDAO = new UserDAO(JPAUtil.getEntityManager());
         user = userDAO.findByLogin(userTextFieldLogin.getText());
-        if(autetication(user)) {
-            stage = (Stage) enterButtonLogin.getScene().getWindow();
-            stage.close();
-            viewsFactory.userMenuView().show();
-        }
-    }
-
-    public void closeAction(MouseEvent mouseEvent) throws IOException {
-        DialogBox.confirmationBox((Stage) closeButtonLogin.getScene().getWindow());
-    }
-
-    private boolean autetication(User user) {
-        boolean result;
-        if (user != null && passwordTextFiledLogin.getText().equals(user.getPassword())) {
-            DialogBox.loginSuccessfully(user.getLogin());
-            result = true;
+        if(Authentication.authetication(user, passwordTextFiledLogin.getText())) {
+            DialogBox.loginSuccessfully(user.getLogin(), ViewsList.USERMENU);
         } else {
             DialogBox.loginFailure();
-            result = false;
         }
-        return result;
+    }
+
+    public void closeAction() {
+        DialogBox.confirmationBox(ViewsList.MAIN);
     }
 }

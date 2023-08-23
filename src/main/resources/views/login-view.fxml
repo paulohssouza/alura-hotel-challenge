@@ -31,7 +31,7 @@
             </font>
         </Label>
         <TextField fx:id="passwordTextFiledLogin" accessibleRole="PASSWORD_FIELD" layoutX="48.0" layoutY="257.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" />
-        <Button fx:id="enterButtonLogin" layoutX="48.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#loginAction" style="-fx-background-color: #0078D7;" text="ENTRAR" textFill="WHITE">
+        <Button fx:id="enterButtonLogin" layoutX="48.0" layoutY="330.0" mnemonicParsing="false" onAction="#loginAction" style="-fx-background-color: #0078D7;" text="ENTRAR" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -40,7 +40,7 @@
     <ImageView fitHeight="286.0" fitWidth="169.0" layoutX="417.0" layoutY="67.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="11.0">
         <Image url="@../images/img-hotel-login-.png" />
     </ImageView>
-    <Button fx:id="closeButtonLogin" layoutX="562.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeAction" style="-fx-background-color: #0C8AC7;" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+    <Button fx:id="closeButtonLogin" layoutX="562.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeAction" style="-fx-background-color: #0C8AC7;" text="X" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
         <font>
           <Font name="System Bold" size="14.0" />
         </font>

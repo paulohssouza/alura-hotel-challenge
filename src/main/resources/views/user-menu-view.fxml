@@ -20,12 +20,12 @@
       <ImageView layoutX="47.0" layoutY="342.0">
          <Image url="@../images/icon-buscar.png" />
       </ImageView>
-      <Button fx:id="bookRecordButton" layoutX="85.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#bookRecord" style="-fx-background-color: #0078D7;" text="Registro de reservas" textFill="WHITE" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="268.0">
+      <Button fx:id="bookRecordButton" layoutX="85.0" layoutY="268.0" mnemonicParsing="false" onAction="#bookRecord" style="-fx-background-color: #0078D7;" text="Registro de reservas" textFill="WHITE" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="268.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="searchButton" layoutX="120.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#search" style="-fx-background-color: #0078D7;" text="Buscar" textFill="WHITE">
+      <Button fx:id="searchButton" layoutX="120.0" layoutY="335.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: #0078D7;" text="Buscar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -73,7 +73,7 @@
          <Font size="18.0" />
       </font>
    </Label>
-   <Button fx:id="closeButton" layoutX="955.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#close" style="-fx-background-color: #ffffff;" text="X" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+   <Button fx:id="closeButton" layoutX="955.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #ffffff;" text="X" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>
