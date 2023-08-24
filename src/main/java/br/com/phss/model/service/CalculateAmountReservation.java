@@ -4,10 +4,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+import static br.com.phss.utils.Constant.DAILYHOTEL;
+
 public class CalculateAmountReservation {
     public static BigDecimal calculateAmountReservation(LocalDate checkInDate, LocalDate checkOutDate) {
         BigDecimal numberOfDays = BigDecimal.valueOf(checkInDate.until(checkOutDate, ChronoUnit.DAYS));
-        BigDecimal dailyRate = new BigDecimal("100.00");
-        return new BigDecimal(String.valueOf(dailyRate.multiply(numberOfDays)));
+        return new BigDecimal(String.valueOf(DAILYHOTEL.multiply(numberOfDays)));
     }
 }

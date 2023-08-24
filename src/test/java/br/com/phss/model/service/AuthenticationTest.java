@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AuthenticationTest {
 
-    User user = new User("teste", "teste");
+    private final User user = new User("teste", "teste");
     @Test
     void autheticationSuccess() {
         assertTrue(Authentication.authetication(user, "teste"));
