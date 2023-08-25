@@ -1,19 +1,24 @@
 package br.com.phss.controller;
 
+import br.com.phss.dao.ReservationDAO;
 import br.com.phss.factory.ViewsList;
 import br.com.phss.model.PaymentForm;
 import br.com.phss.model.Reservation;
 import br.com.phss.model.service.CalculateAmountReservation;
 import br.com.phss.utils.DialogBox;
+import static br.com.phss.model.service.ValidateForms.*;
+
+import br.com.phss.utils.JPAUtil;
+import jakarta.persistence.EntityManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -21,7 +26,7 @@ public class BookRecordController implements Initializable {
     public Button closeButton;
     public DatePicker checkInDatePicker;
     public DatePicker checkOutDatePicker;
-    public ComboBox paymentMethodComBox;
+    public ComboBox<PaymentForm> paymentMethodComBox;
     public Button nextButton;
     public Button returnButton;
     public Label labelAmountReservation;
@@ -33,13 +38,7 @@ public class BookRecordController implements Initializable {
     }
 
     public void next() {
-        Reservation reservation = new Reservation(
-                checkInDatePicker.getValue(),
-                checkOutDatePicker.getValue(),
-                new BigDecimal(labelAmountReservation.getText()),
-                paymentMethodComBox.getValue().toString()
-        );
-        System.out.println(reservation);
+        createReservation();
     }
 
     public void returnWindow() {
@@ -50,25 +49,44 @@ public class BookRecordController implements Initializable {
         DialogBox.confirmationBox(ViewsList.USERMENU);
     }
 
-    private ObservableList<String> paymentMethodsList() {
-        List<String> paymentMethodsList = new ArrayList<>();
-        paymentMethodsList.add(PaymentForm.CREDITO.toString());
-        paymentMethodsList.add(PaymentForm.DEBITO.toString());
-        paymentMethodsList.add(PaymentForm.PIX.toString());
-        paymentMethodsList.add(PaymentForm.DINHEIRO.toString());
+    private ObservableList<PaymentForm> paymentMethodsList() {
+        List<PaymentForm> paymentMethodsList = new ArrayList<>(Arrays.asList(PaymentForm.values()));
         return FXCollections.observableList(paymentMethodsList);
     }
 
-    public void checkInDateInput(ActionEvent inputMethodEvent) {
+    public void checkInDateInput() {
         checkOutDatePicker.setDisable(false);
     }
 
-    public void checkOutDateInput(ActionEvent inputMethodEvent) {
+    public void checkOutDateInput() {
         String amount = CalculateAmountReservation
                 .calculateAmountReservation(
                         checkInDatePicker.getValue(),
                         checkOutDatePicker.getValue())
                 .toString();
         labelAmountReservation.setText(amount);
+    }
+
+    private void createReservation() {
+        if(
+                formDateIsNotNull(checkInDatePicker.getValue()) &&
+                        formDateIsNotNull(checkOutDatePicker.getValue()) &&
+                        formComboxIsNotNull(paymentMethodComBox.getValue())
+        ) {
+            EntityManager entityManager = JPAUtil.getEntityManager();
+            ReservationDAO reservationDAO = new ReservationDAO(entityManager);
+            Reservation reservation = new Reservation(
+                    checkInDatePicker.getValue(),
+                    checkOutDatePicker.getValue(),
+                    new BigDecimal(labelAmountReservation.getText()),
+                    paymentMethodComBox.getValue().toString()
+            );
+            entityManager.getTransaction().begin();
+            reservationDAO.insert(reservation);
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        } else {
+            DialogBox.validateFailureForm();
+        }
     }
 }

@@ -11,10 +11,9 @@ import java.util.Objects;
 
 public class ChangeScene {
 
-    private static final Stage stage = new Stage();
+    private static Stage stage = new Stage();
 
     public static Stage changeScene(ViewsList viewsList) {
-        Stage stage = null;
         switch (viewsList) {
             case MAIN:
                 stage = setStage("/views/main-application-view.fxml");
@@ -30,6 +29,9 @@ public class ChangeScene {
                 break;
             case SEARCHSYSTEM:
                 setStage("/views/search-system-view.fxml");
+                break;
+            case GUESTRECORD:
+                setStage("/views/guest-record-view.fxml");
                 break;
         }
         return stage;

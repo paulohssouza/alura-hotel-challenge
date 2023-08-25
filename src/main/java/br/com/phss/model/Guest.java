@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,16 +21,20 @@ public class Guest {
     private String name;
     @Column(name = "last_name")
     private String lastName;
+    @Column(length = 11)
+    private String cpf;
     private LocalDate birthday;
-    private String nationality;
-    @Column(name = "phone_number")
+    private Country nationality;
+    @Column(name = "phone_number", length = 11)
     private String phoneNumber;
-    @OneToMany(mappedBy = "guest")
+    @OneToMany(mappedBy = "guest", orphanRemoval = true)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Reservation> reservationList;
 
-    public Guest(String name, String lastName, LocalDate birthday, String nationality, String phoneNumber) {
+    public Guest(String name, String lastName, String cpf, LocalDate birthday, Country nationality, String phoneNumber) {
         this.name = name;
         this.lastName = lastName;
+        this.cpf = cpf;
         this.birthday = birthday;
         this.nationality = nationality;
         this.phoneNumber = phoneNumber;

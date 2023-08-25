@@ -14,18 +14,26 @@
          <Image url="@../images/Ha-100px.png" />
       </ImageView>
       <Separator layoutX="59.0" layoutY="213.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
-      <ImageView layoutX="43.0" layoutY="268.0">
+      <ImageView layoutX="43.0" layoutY="323.0">
          <Image url="@../images/icon-reservas.png" />
       </ImageView>
-      <ImageView layoutX="47.0" layoutY="342.0">
+      <ImageView layoutX="47.0" layoutY="382.0">
          <Image url="@../images/icon-buscar.png" />
       </ImageView>
-      <Button fx:id="bookRecordButton" layoutX="85.0" layoutY="268.0" mnemonicParsing="false" onAction="#bookRecord" style="-fx-background-color: #0078D7;" text="Registro de reservas" textFill="WHITE" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="268.0">
+      <Button fx:id="bookRecordButton" layoutX="85.0" layoutY="320.0" mnemonicParsing="false" onAction="#bookRecord" style="-fx-background-color: #0078D7;" text="Registro de reservas" textFill="WHITE" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="320.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="searchButton" layoutX="120.0" layoutY="335.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: #0078D7;" text="Buscar" textFill="WHITE">
+      <Button fx:id="searchButton" layoutX="120.0" layoutY="374.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: #0078D7;" text="Buscar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <ImageView layoutX="44.0" layoutY="271.0">
+         <Image url="@../images/icon-reservas.png" />
+      </ImageView>
+      <Button fx:id="guestRecordButton" layoutX="85.0" layoutY="268.0" mnemonicParsing="false" onAction="#guestRecord" style="-fx-background-color: #0078D7;" text="Registro de hóspedes" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

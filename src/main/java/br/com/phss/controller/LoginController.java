@@ -23,8 +23,6 @@ public class LoginController implements Initializable {
     public TextField passwordTextFiledLogin;
     @FXML
     public TextField userTextFieldLogin;
-    private User user;
-    private UserDAO userDAO;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -32,8 +30,8 @@ public class LoginController implements Initializable {
     }
 
     public void loginAction() {
-        userDAO = new UserDAO(JPAUtil.getEntityManager());
-        user = userDAO.findByLogin(userTextFieldLogin.getText());
+        UserDAO userDAO = new UserDAO(JPAUtil.getEntityManager());
+        User user = userDAO.findByLogin(userTextFieldLogin.getText());
         if(Authentication.authetication(user, passwordTextFiledLogin.getText())) {
             DialogBox.loginSuccessfully(user.getLogin(), ViewsList.USERMENU);
         } else {

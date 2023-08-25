@@ -9,10 +9,12 @@ module alura.hotel.challenge {
     exports br.com.phss.dao;
     exports br.com.phss.controller;
     exports br.com.phss.utils;
+    exports br.com.phss.model.service;
 
     requires javafx.fxml;
     requires javafx.controls;
     requires jakarta.persistence;
     requires static lombok;
     requires org.hibernate.orm.core;
+    requires commons.validator;
 }

@@ -22,6 +22,13 @@ public class DialogBox {
         }
     }
 
+    public static void inssertSuccessfully() {
+        alertBox = new Alert(Alert.AlertType.INFORMATION);
+        alertBox.setHeaderText("Sucesso!");
+        alertBox.setHeaderText("Inserção realizada com sucesso.");
+        alertBox.showAndWait();
+    }
+
     public static void loginSuccessfully(String login, ViewsList view) {
         alertBox = new Alert(Alert.AlertType.INFORMATION);
         alertBox.setHeaderText("Login com sucesso.");
@@ -49,5 +56,26 @@ public class DialogBox {
             ChangeScene.changeScene(view);
             alertBox.close();
         }
+    }
+
+    public static void validateFailureForm() {
+        alertBox = new Alert(Alert.AlertType.WARNING);
+        alertBox.setHeaderText("Cuidado!");
+        alertBox.setContentText("Todos os campos devem estar preenchidos corretamente.");
+        alertBox.showAndWait();
+    }
+
+    public static void confirmationNewInsertion(ViewsList view) {
+        alertBox = new Alert(Alert.AlertType.NONE, "Default Dialog",ButtonType.YES, ButtonType.NO);
+        alertBox.setHeaderText("Nova inclusão?");
+        alertBox.setContentText("Deseja incluir novo hóspede?");
+        Optional<ButtonType> result = alertBox.showAndWait();
+        if(result.get() == ButtonType.YES) {
+            alertBox.close();
+        } else {
+            alertBox.close();
+            ChangeScene.changeScene(view);
+        }
+
     }
 }

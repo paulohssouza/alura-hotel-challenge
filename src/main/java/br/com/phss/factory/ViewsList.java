@@ -5,5 +5,6 @@ public enum ViewsList {
     LOGIN,
     BOOKRECORD,
     SEARCHSYSTEM,
-    USERMENU
+    USERMENU,
+    GUESTRECORD
 }
