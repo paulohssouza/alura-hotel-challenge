@@ -28,11 +28,12 @@ public class Reservation {
     @JoinColumn(name = "guest")
     private Guest guest;
 
-    public Reservation(LocalDate entryDate, LocalDate departureDate, BigDecimal amount, String paymentForm) {
+    public Reservation(LocalDate entryDate, LocalDate departureDate, BigDecimal amount, String paymentForm, Guest guest) {
         this.entryDate = entryDate;
         this.departureDate = departureDate;
         this.amount = amount;
         this.paymentForm = paymentForm;
+        this.guest = guest;
     }
 
     @Override
@@ -43,7 +44,6 @@ public class Reservation {
                 ", departureDate=" + departureDate +
                 ", amount=" + amount +
                 ", paymentForm=" + paymentForm +
-                ", guest=" + guest +
                 '}';
     }
 }

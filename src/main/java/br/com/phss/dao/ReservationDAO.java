@@ -13,4 +13,8 @@ public class ReservationDAO {
     public void insert(Reservation reservation) {
         this.entityManager.persist(reservation);
     }
+
+    public Reservation findByID(Long id) {
+        return this.entityManager.find(Reservation.class, id);
+    }
 }

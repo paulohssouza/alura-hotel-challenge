@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -27,9 +28,9 @@ public class Guest {
     private Country nationality;
     @Column(name = "phone_number", length = 11)
     private String phoneNumber;
-    @OneToMany(mappedBy = "guest", orphanRemoval = true)
+    @OneToMany(mappedBy = "guest", orphanRemoval = true, fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private List<Reservation> reservationList;
+    private List<Reservation> reservationList = new ArrayList<>();
 
     public Guest(String name, String lastName, String cpf, LocalDate birthday, Country nationality, String phoneNumber) {
         this.name = name;
@@ -38,7 +39,10 @@ public class Guest {
         this.birthday = birthday;
         this.nationality = nationality;
         this.phoneNumber = phoneNumber;
-        this.reservationList = null;
+    }
+
+    public void addReservation(Reservation reservation) {
+        this.reservationList.add(reservation);
     }
 
     @Override
@@ -47,6 +51,7 @@ public class Guest {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", cpf='" + cpf + '\'' +
                 ", birthday=" + birthday +
                 ", nationality='" + nationality + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
