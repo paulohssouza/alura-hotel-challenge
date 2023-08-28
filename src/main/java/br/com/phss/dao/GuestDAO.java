@@ -1,9 +1,11 @@
 package br.com.phss.dao;
 
-import br.com.phss.model.Guest;
-import br.com.phss.model.Reservation;
+import br.com.phss.model.guest.Guest;
+import br.com.phss.model.reservation.Reservation;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
+
+import java.util.List;
 
 public class GuestDAO {
     private final EntityManager entityManager;
@@ -33,5 +35,10 @@ public class GuestDAO {
         } catch (NoResultException noResultException) {
             return null;
         }
+    }
+
+    public List<Guest> findListGuest() {
+        String jpql ="select g from Guest as g";
+        return this.entityManager.createQuery(jpql, Guest.class).getResultList();
     }
 }

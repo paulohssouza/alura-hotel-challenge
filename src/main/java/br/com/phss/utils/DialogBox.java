@@ -76,6 +76,12 @@ public class DialogBox {
             alertBox.close();
             ChangeScene.changeScene(view);
         }
+    }
 
+    public static void validateGuestFailure() {
+        alertBox = new Alert(Alert.AlertType.WARNING);
+        alertBox.setHeaderText("Cuidado!");
+        alertBox.setContentText("Hóspede não encontrado. Confira o CPF ou cadastre o hóspede.");
+        alertBox.showAndWait();
     }
 }

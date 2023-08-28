@@ -3,10 +3,11 @@ package br.com.phss.controller;
 import br.com.phss.dao.GuestDAO;
 import br.com.phss.dao.ReservationDAO;
 import br.com.phss.factory.ViewsList;
-import br.com.phss.model.Guest;
-import br.com.phss.model.PaymentForm;
-import br.com.phss.model.Reservation;
+import br.com.phss.model.guest.Guest;
+import br.com.phss.model.reservation.PaymentForm;
+import br.com.phss.model.reservation.Reservation;
 import br.com.phss.model.service.CalculateAmountReservation;
+import br.com.phss.model.service.ValidateGuest;
 import br.com.phss.utils.DialogBox;
 import static br.com.phss.model.service.ValidateForms.*;
 
@@ -77,7 +78,7 @@ public class BookRecordController implements Initializable {
 
     private void createReservation(Guest guest) {
         if(
-                validateForm() && validateGuest(guest)
+                validateForm() && ValidateGuest.validateGuest(guest)
         ) {
             ReservationDAO reservationDAO = new ReservationDAO(entityManager);
             Reservation reservation = new Reservation(
@@ -101,9 +102,5 @@ public class BookRecordController implements Initializable {
                 formDateIsNotNull(checkOutDatePicker.getValue()) &&
                 formComboxIsNotNull(paymentMethodComBox.getValue()) &&
                 formTextFieldLengthisValid(textFiledGuestCPF.getText(), 11);
-    }
-
-    private boolean validateGuest(Guest guest) {
-        return guest != null;
     }
 }

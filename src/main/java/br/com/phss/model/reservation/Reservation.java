@@ -1,5 +1,6 @@
-package br.com.phss.model;
+package br.com.phss.model.reservation;
 
+import br.com.phss.model.guest.Guest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -2,8 +2,8 @@ package br.com.phss.controller;
 
 import br.com.phss.dao.GuestDAO;
 import br.com.phss.factory.ViewsList;
-import br.com.phss.model.Country;
-import br.com.phss.model.Guest;
+import br.com.phss.model.guest.Country;
+import br.com.phss.model.guest.Guest;
 import br.com.phss.utils.DialogBox;
 import br.com.phss.model.service.FormsConfiguration;
 import static br.com.phss.model.service.ValidateForms.*;

@@ -10,6 +10,10 @@ module alura.hotel.challenge {
     exports br.com.phss.controller;
     exports br.com.phss.utils;
     exports br.com.phss.model.service;
+    exports br.com.phss.model.reservation;
+    opens br.com.phss.model.reservation;
+    exports br.com.phss.model.guest;
+    opens br.com.phss.model.guest;
 
     requires javafx.fxml;
     requires javafx.controls;

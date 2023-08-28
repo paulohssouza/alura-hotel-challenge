@@ -1,4 +1,4 @@
-package br.com.phss.model;
+package br.com.phss.model.guest;
 
 import lombok.Getter;
 
