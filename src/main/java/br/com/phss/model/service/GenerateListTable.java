@@ -46,7 +46,7 @@ public class GenerateListTable {
         return guestTableDataList;
     }
 
-    private static String generateStringReservationIds(Guest guest) {
+    public static String generateStringReservationIds(Guest guest) {
         String ids = "IDs: ";
         for (Reservation reservation : guest.getReservationList()
              )

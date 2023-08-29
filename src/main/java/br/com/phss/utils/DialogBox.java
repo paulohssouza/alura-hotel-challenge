@@ -84,4 +84,18 @@ public class DialogBox {
         alertBox.setContentText("Hóspede não encontrado. Confira o CPF ou cadastre o hóspede.");
         alertBox.showAndWait();
     }
+
+    public static void dialogBoxInformation(String header, String content) {
+        alertBox = new Alert(Alert.AlertType.WARNING);
+        alertBox.setHeaderText(header);
+        alertBox.setContentText(content);
+        alertBox.showAndWait();
+    }
+
+    public static void validateReservationFailure() {
+        alertBox = new Alert(Alert.AlertType.WARNING);
+        alertBox.setHeaderText("Cuidado!");
+        alertBox.setContentText("Reserva não encontrada. Confira o ID ou cadastre uma nova reserva.");
+        alertBox.showAndWait();
+    }
 }
